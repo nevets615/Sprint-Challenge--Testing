@@ -35,7 +35,7 @@ describe("server", () => {
   });
   describe("server", () => {
     it("should insert provided hobbit", async () => {
-      await games.post({ title: "pacman" });
+      await server.post({ title: "pacman" });
 
       const games = await db("games");
 
@@ -43,7 +43,7 @@ describe("server", () => {
     });
 
     it("should insert provided games", async () => {
-      let games = await games.post({ title: "pacman" });
+      let games = await server.post({ title: "pacman" });
       expect(games.title).toBe("pacman");
 
       game = await games.post({ title: "pacman" });
