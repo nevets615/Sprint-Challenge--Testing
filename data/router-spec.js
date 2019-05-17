@@ -1,39 +1,39 @@
 const request = require("supertest");
 
-const router = require("./router.js");
+const server = require("./server.js");
 
-describe("router", () => {
-  describe("GET /", () => {
+describe("server", () => {
+  describe("GET /api/games", () => {
     it("should return an OK status code from the index route", async () => {
       it("should return 200 OK", () => {
-        return request(router)
-          .get("/")
+        return request(server)
+          .get("/api/games")
           .expect(200);
       });
       it("should return a JSON object fron the index route", async () => {
         const expectedBody = { games };
 
-        const response = await request(router).get("/");
+        const response = await request(server).get("/api/games");
 
         expect(response.body).toBe(expectedBody);
       });
 
       it("should return { games }", () => {
-        return request(router)
-          .get("/")
+        return request(server)
+          .get("/api/games")
           .then(res => {
             expect(res.body).toBe("games");
           });
       });
 
       it("should return a JSON object fron the index route", async () => {
-        const response = await request(router).get("/");
+        const response = await request(server).get("/api/games");
 
         expect(response.type).toBe("application/json");
       });
     });
   });
-  describe("router", () => {
+  describe("server", () => {
     it("should insert provided hobbit", async () => {
       await games.post({ title: "pacman" });
 
@@ -46,10 +46,10 @@ describe("router", () => {
       let games = await games.post({ title: "pacman" });
       expect(games.title).toBe("pacman");
 
-      games = await games.post({ title: "pacman" });
+      game = await games.post({ title: "pacman" });
       expect(games.title).toBe("pacman");
 
-      const games = await db("games");
+      const game = await db("games");
 
       expect(games).toHaveLength(2);
     });
