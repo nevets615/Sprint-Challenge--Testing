@@ -29,7 +29,7 @@ router.post("/", (req, res) => {
         .where({ id: ids[0] })
         .first()
         .then(role => {
-          res.status(200).json(role);
+          res.status(201).json(role);
         })
         .catch(err => {
           res.status(500).json(err.message);
