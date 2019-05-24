@@ -46,7 +46,7 @@ describe("POST /api/games", () => {
       .expect(500);
   });
 });
-it("add More params error", () => {
+it("validate that the required fields are included inside the body", () => {
   request(server)
     .post("/api/games")
     .send({ title: "" })
